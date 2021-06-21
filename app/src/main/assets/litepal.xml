@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<litepal>
+    <dbname value="lhan_weather" />
+
+    <version value="1" />
+
+    <list>
+        <mapping class="com.lhanman.lhanweather.db.Province" />
+        <mapping class="com.lhanman.lhanweather.db.City" />
+        <mapping class="com.lhanman.lhanweather.db.County" />
+    </list>
+</litepal>
