@@ -1,6 +1,7 @@
 package com.lhanman.lhanweather;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.service.autofill.Dataset;
 import android.view.LayoutInflater;
@@ -20,6 +21,7 @@ import androidx.fragment.app.Fragment;
 import com.lhanman.lhanweather.db.City;
 import com.lhanman.lhanweather.db.County;
 import com.lhanman.lhanweather.db.Province;
+import com.lhanman.lhanweather.gson.Weather;
 import com.lhanman.lhanweather.util.HttpUtil;
 import com.lhanman.lhanweather.util.Utility;
 
@@ -99,6 +101,14 @@ public class ChooseAreaFragment extends Fragment {
                 {
                     selectgedCity = cityList.get(position);
                     queryCounties();
+                }
+                else if(currentLevel == LEVLE_COUNTY)
+                {
+                    String weatherId = countyList.get(position).getWeatherId();
+                    Intent intent = new Intent(getActivity(), WeatherActivity.class);
+                    intent.putExtra("weather_id",weatherId);
+                    startActivity(intent);
+                    getActivity().finish();
                 }
             }
         });
